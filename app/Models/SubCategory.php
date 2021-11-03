@@ -12,6 +12,6 @@ class SubCategory extends Model
     protected $primarykey = 'sub_cat_id';
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class, 'cat_id');
     }
 }

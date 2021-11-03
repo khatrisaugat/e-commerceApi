@@ -11,4 +11,5 @@ class Category extends Model
     protected $table = 'tbl_category';
     protected $primaryKey = 'cat_id';
     
+    
 }

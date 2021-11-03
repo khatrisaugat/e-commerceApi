@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubCategoriesTable extends Migration
+class CreateVariants extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateSubCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sub_categories', function (Blueprint $table) {
+        Schema::create('variants', function (Blueprint $table) {
             $table->id();
-            $table->string('sub_cat_name');
-            $table->foreignId('cat_id')->references('id')->on('category')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            $table->foreignId('variant_title_id')->references('id')->on('variant_title');
+            $table->string('variant');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateSubCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_categories');
+        Schema::dropIfExists('variants');
     }
 }
